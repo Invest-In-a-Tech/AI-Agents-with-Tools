@@ -32,8 +32,8 @@ This project provides a template for building interactive applications using var
 Clone the repository:
 
 ```sh
-git clone https://github.com/yourusername/custom-rest-api.git
-cd custom-rest-api
+git https://github.com/Invest-In-a-Tech/AI-Agents-with-Tools
+cd ai-agents-with-tools
 ```
 
 Create and activate a virtual environment:
@@ -159,6 +159,19 @@ This module processes and describes images using Google Generative AI.
   - `_run(self, file_path: str, query: str = "describe the image") -> str`: Executes a synchronous image processing and description task.
   - `process_uploaded_image(file_path)`: Processes the uploaded image file to prepare it for API interaction.
   - `image_data_to_data_url(image_parts)`: Converts image data to a data URL format.
+
+### src/services/google_online_search_tool.py
+This module enables performing online searches using Google's search capabilities.
+
+#### Class GoogleOnlineSearchTool:
+- **Attributes:**
+   - `name`: Name of the tool.
+   - `description`: Short description of the tool's functionality, focusing on its ability to perform online searches.
+   - `args_schema`: The input validation model assigned to the tool, ensuring that search queries meet specific criteria before execution.
+- **Methods:**
+   - `search(self, query: str, num_results: int = 10) -> list`: Executes an online search for the given query and returns a list of results. The number of results can be specified.
+   - `format_search_results(self, results) -> str`: Formats the raw search results into a more readable or structured format, depending on the implementation details.
+   - `validate_query(self, query: str) -> bool`: Validates the search query against the `args_schema` to ensure it meets the necessary criteria for a successful search.
 
 ## Contributing
 We welcome contributions to Custom REST API. To contribute, follow these steps:
