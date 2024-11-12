@@ -57,9 +57,10 @@ class ImageDescriberTool(BaseTool):
         description (str): Short description of what the tool does.
         args_schema (Type[BaseModel]): The input validation model assigned to the tool.
     """
-    name = "image_describer"  # Name of the tool
-    description = "Processes an uploaded image and uses Google Generative AI to describe it."
+    name: str = "image_describer"  # Name of the tool
+    description: str = "Processes an uploaded image and uses Google Generative AI to describe it."
     args_schema: Type[BaseModel] = ImageProcessingInput  # Input validation schema
+
 
 
     ##############################################

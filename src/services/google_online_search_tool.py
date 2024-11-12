@@ -1,26 +1,13 @@
-"""
-Module for integrating Google Search functionality with LangChain tools.
-
-This script imports necessary modules and classes, loads configuration values from the environment,
-and defines a Pydantic model and a tool class for performing Google searches.
-
-Classes:
-    SearchInput(BaseModel): Pydantic model for validating and documenting the expected input for the search tool.
-    GoogleSearchTool(BaseTool): Class for the Google Search tool, extending LangChain's BaseTool.
-"""
-
-# Import necessary modules and classes for typing, LangChain tool management, Pydantic models, and utility functions
-from typing import Optional, Type  
+from typing import Optional, Type, ClassVar  # Import ClassVar for static class attributes
+from pydantic import BaseModel, Field  # Use direct Pydantic imports
 from langchain.callbacks.manager import CallbackManagerForToolRun, AsyncCallbackManagerForToolRun
-from langchain.pydantic_v1 import BaseModel, Field
 from langchain.tools import BaseTool
 from langchain_google_community import GoogleSearchAPIWrapper
-from src.config.config import get_env_variable  # Import function to load environment variables
+from src.config.config import get_env_variable
 
 # Load necessary configuration values from the environment
-google_api_key = get_env_variable("GOOGLE_API_KEY")  # API key for authenticating requests to Google's API
-google_cse_id = get_env_variable("GOOGLE_CSE_ID")  # Custom Search Engine ID to specify which CSE to query
-
+google_api_key = get_env_variable("GOOGLE_API_KEY")
+google_cse_id = get_env_variable("GOOGLE_CSE_ID")
 
 ##############################################
 # Define the SearchInput class
@@ -32,8 +19,7 @@ class SearchInput(BaseModel):
     Attributes:
         query (str): The search query string that should be provided as input.
     """
-    query: str = Field(description="should be a search query")  # Define a single field 'query' expected as input
-
+    query: str = Field(description="should be a search query")
 
 ##############################################
 # Define the GoogleSearchTool class
@@ -48,18 +34,15 @@ class GoogleSearchTool(BaseTool):
         name (str): Name of the tool.
         description (str): Short description of what the tool does.
         args_schema (Type[BaseModel]): The input validation model assigned to the tool.
-        search (GoogleSearchAPIWrapper): Wrapper around Google's Search API.
+        search (ClassVar[GoogleSearchAPIWrapper]): Wrapper around Google's Search API.
     """
-    name = "google_search"  # Name of the tool, used for referencing in the LangChain framework
-    description = "Search Google for recent results."  # Short description of what the tool does
-    args_schema: Type[BaseModel] = SearchInput  # Assign the input validation model to the tool
-
-    # Initialize a wrapper around Google's Search API using the loaded environment variables
-    search = GoogleSearchAPIWrapper(
+    name: str = "google_search"
+    description: str = "Search Google for recent results."
+    args_schema: Type[BaseModel] = SearchInput
+    search: ClassVar[GoogleSearchAPIWrapper] = GoogleSearchAPIWrapper(  # Annotate as ClassVar
         google_api_key=google_api_key,
         google_cse_id=google_cse_id
-    ) 
-
+    )
 
     ##############################################
     # Define the _run method
@@ -78,7 +61,6 @@ class GoogleSearchTool(BaseTool):
             str: The search results.
         """
         return self.search.run(query)
-
 
     ##############################################
     # Define the _arun method
