@@ -1,0 +1,13 @@
+python-dotenv
+ipython
+langchain
+langchain_openai
+langchain-google-genai
+langchain-google-community
+Pillow
+schedule
+screeninfo
+google-search-results
+google-api-python-client>=2.100.0
+pytest
+pytest-mock
