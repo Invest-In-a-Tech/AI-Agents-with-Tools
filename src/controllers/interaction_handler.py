@@ -109,6 +109,15 @@ class InteractionHandler:
                 "parameters": {},
                 "chat_history": self.chat_history
             })
+        elif input_value.lower() == "take a screenshot":
+            # Invoke the screenshot grabber tool for taking a screenshot
+            return self.agent_executor.invoke({
+                "input": "take a screenshot",
+                "tool": "screenshot_grabber",
+                "action": "take_screenshot",
+                "parameters": {},
+                "chat_history": self.chat_history
+            })
         else:
             # For general text input, invoke the agent executor without specifying a tool or action
             return self.agent_executor.invoke({

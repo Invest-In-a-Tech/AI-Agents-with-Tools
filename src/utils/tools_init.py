@@ -10,6 +10,7 @@ Functions:
 
 # Import the tool classes from their respective modules
 # from utils.screenshot_grabber_tool import ScreenshotGrabberTool
+from services.screenshot_grabber_tool import ScreenshotGrabberTool
 from src.services.image_describer_tool import ImageDescriberTool
 from src.services.google_online_search_tool import GoogleSearchTool
 
@@ -29,6 +30,7 @@ def initialize_tools():
     """
     # Create a dictionary named 'tools' to store the instances of each tool
     tools = {
+        "screenshot_grabber": ScreenshotGrabberTool(),  # Instance of ScreenshotGrabberTool
         "image_describer": ImageDescriberTool(),        # Instance of ImageDescriberTool
         "google_search": GoogleSearchTool()             # Instance of GoogleSearchTool
     }
