@@ -47,6 +47,7 @@ def setup_agent(tools):
     # Initialize a ChatOpenAI instance with specific model, API key, and callbacks for streaming output
     llm = ChatOpenAI(
         model="gpt-4o",  # Our most advanced, multimodal flagship model that’s cheaper and faster than GPT-4 Turbo. Currently points to gpt-4o-2024-05-13.
+        # model="gpt-4.1",  # Specify the model to use (commented lines show other options)
         # model="gpt-3.5-turbo-0125",  # Specify the model to use (commented lines show other options)
         # model="gpt-4-0125-preview", 
         # model="gpt-4",       

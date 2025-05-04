@@ -30,9 +30,9 @@ def initialize_tools():
     """
     # Create a dictionary named 'tools' to store the instances of each tool
     tools = {
+        "google_search": GoogleSearchTool(),             # Instance of GoogleSearchTool
         "screenshot_grabber": ScreenshotGrabberTool(),  # Instance of ScreenshotGrabberTool
         "image_describer": ImageDescriberTool(),        # Instance of ImageDescriberTool
-        "google_search": GoogleSearchTool()             # Instance of GoogleSearchTool
     }
     # Return the dictionary containing the tool instances
     return tools

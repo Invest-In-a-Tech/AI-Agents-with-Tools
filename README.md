@@ -1,4 +1,3 @@
-
 # AI Agents with Tools
 
 ## Project Description
@@ -97,6 +96,7 @@ ai-agents-with-tools/
 │   ├── services/
 │   │   └── image_describer_tool.py
 │   │   └── google_online_search_tool.py
+│   │   └── screenshot_grabber_tool.py
 │   ├── utils/
 │   │   └── agent_setup_openai.py
 │   ├── tools/

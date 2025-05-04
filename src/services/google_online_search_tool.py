@@ -37,7 +37,7 @@ class GoogleSearchTool(BaseTool):
         search (ClassVar[GoogleSearchAPIWrapper]): Wrapper around Google's Search API.
     """
     name: str = "google_search"
-    description: str = "Search Google for recent results."
+    description: str = "Search Google for recent results. Use this tool for current events, today's news, or recent updates."
     args_schema: Type[BaseModel] = SearchInput
     search: ClassVar[GoogleSearchAPIWrapper] = GoogleSearchAPIWrapper(  # Annotate as ClassVar
         google_api_key=google_api_key,
