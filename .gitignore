@@ -122,3 +122,17 @@ tmtags
 *.fdb_latexmk
 math_test.py
 *.png
+# Additional image formats
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.tif
+*.webp
+*.svg
+*.ico
+*.psd
+*.ai
+*.xcf
+
