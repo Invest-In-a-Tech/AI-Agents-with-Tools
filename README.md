@@ -1,7 +1,7 @@
 # AI Agents with Tools
 
 ## Project Description
-This project provides a template for building interactive applications using various AI tools and APIs. It shows the integration of **OpenAI API**, **Google Generative AI API**, **LangChain**, function calling, and agents with tools. This template is designed to handle requests, process data, and return responses, acting as an intermediary between user inputs and AI-powered outputs.
+This project provides a template for building interactive applications using various AI tools and APIs. It shows the integration of **OpenAI API**, **Google Generative AI API**, **LangChain**, and function calling (agents with tools). This template is designed to handle requests, process data, and return responses, acting as an intermediary between user inputs and AI-powered outputs.
 
 ### Key Features
 - **AI Integration**: Integrates OpenAI API, Google Generative AI API, LangChain, and other advanced AI tools.
